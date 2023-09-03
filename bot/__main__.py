@@ -556,14 +556,12 @@ def main():
                     msg = f"😎Restarted successfully❗\n"
                     msg += f"📅DATE: {date}\n"
                     msg += f"⌚TIME: {time}\n"
-                    msg += f"🌐TIMEZONE: {TIMEZONE}
-                    Professor\n"
+                    msg += f"🌐TIMEZONE: {TIMEZONE}\n"
                 else:
                     msg = f"😎Bot Restarted!\n"
                     msg += f"📅DATE: {date}\n"
                     msg += f"⌚TIME: {time}\n"
-                    msg += f"🌐TIMEZONE: {TIMEZONE}
-                    Professor"
+                    msg += f"🌐TIMEZONE: {TIMEZONE}"
 
                 for tag, links in data.items():
                      msg += f"\n{tag}: "
