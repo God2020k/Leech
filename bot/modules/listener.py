@@ -274,7 +274,7 @@ class MirrorLeechListener:
                             )
             file_ = _newExtFileName
 
-        if EMOJI_THEME is True:
+        if EMOJI_THEME is False:
             slmsg = f"🗂️ Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
             slmsg += f"📐 Size: {size}\n"
             slmsg += f"👥 Added by: {self.tag} | <code>{self.user_id}</code>\n\n"
@@ -317,7 +317,7 @@ class MirrorLeechListener:
         else:
             warnmsg = ''
         if BOT_PM and self.message.chat.type != 'private':
-            if EMOJI_THEME is True:
+            if EMOJI_THEME is False:
                 pmwarn = f"<b>😉 I have sent files in PM.</b>\n"
             else:
                 pmwarn = f"<b>I have sent files in PM.</b>\n"
@@ -335,7 +335,7 @@ class MirrorLeechListener:
         else:
             logwarn = ''
         if LEECH_LOG and self.message.chat.type != 'private':
-            if EMOJI_THEME is True:
+            if EMOJI_THEME is False:
                 logleechwarn = f"<b>⚠️ I have sent files in Leech Log Channel. Join <a href=\"{LEECH_LOG_URL}\">Leech Log channel</a> </b>\n"
             else:
                 logleechwarn = f"<b>I have sent files in Leech Log Channel. Join <a href=\"{LEECH_LOG_URL}\">Leech Log channel</a> </b>\n"
@@ -371,7 +371,7 @@ class MirrorLeechListener:
             if reply_to is not None and AUTO_DELETE_UPLOAD_MESSAGE_DURATION == -1:
                 reply_to.delete()
 
-        if EMOJI_THEME is True:
+        if EMOJI_THEME is False:
             msg = f"<b>╭🗂️ Name: </b><{NAME_FONT}>{file_}</{NAME_FONT}>\n<b>├📐 Size: </b>{size}"
         else:
             msg = f"<b>╭ Name: </b><{NAME_FONT}>{file_}</{NAME_FONT}>\n<b>├ Size: </b>{size}"
@@ -424,7 +424,7 @@ class MirrorLeechListener:
             else:
                 botstart = ''
 
-            if EMOJI_THEME is True:
+            if EMOJI_THEME is False:
                 msg += f'\n<b>├📚 Total Files: </b>{folders}'
             else:
                 msg += f'\n<b>├ Total Files: </b>{folders}'
@@ -433,7 +433,7 @@ class MirrorLeechListener:
                     msg += f'\n<b>├💀 Corrupted Files: </b>{typ}'
                 else:
                     msg += f'\n<b>├ Corrupted Files: </b>{typ}'
-            if EMOJI_THEME is True:
+            if EMOJI_THEME is False:
                 msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
                 msg += f'\n<b>╰👤 #Leech_by: </b>{self.tag}\n\n'
             else: 
