@@ -429,10 +429,15 @@ class MirrorLeechListener:
                     msg += f'\n<b>├💀 Corrupted Files: </b>{typ}'
                 else:
                     msg += f'\n<b>├ Corrupted Files: </b>{typ}'
-            if EMOJI_THEME is False:
-                
-        else:
+            if EMOJI_THEME is True:
+                msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
+                msg += f'\n<b>╰👤 #Leech_by: </b>{self.tag}\n\n'
+            else: 
+                msg += f'\n<b>├ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
+                msg += f'\n<b>╰ #Leech_by: </b>{self.tag}\n\n'
 
+
+      
            if not files:
                 if PICS:
                     uploadmsg = sendPhoto(msg, self.bot, self.message, choice(PICS), buttons.build_menu(2))
