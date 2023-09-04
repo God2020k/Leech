@@ -277,7 +277,7 @@ class MirrorLeechListener:
         if EMOJI_THEME is False:
             slmsg = f"🗂️ Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
         else:
-            slmsg = f"Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n
+            slmsg = f"Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
         if LINK_LOGS:
             try:
                 upper = f"‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒\n"
