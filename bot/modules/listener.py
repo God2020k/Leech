@@ -276,12 +276,8 @@ class MirrorLeechListener:
 
         if EMOJI_THEME is False:
             slmsg = f"🗂️ Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
-            slmsg += f"📐 Size: {size}\n"
-            slmsg += f"👥 Added by: {self.tag} | <code>{self.user_id}</code>\n\n"
         else:
-            slmsg = f"Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
-            slmsg += f"Size: {size}\n"
-            slmsg += f"Added by: {self.tag} | <code>{self.user_id}</code>\n\n"
+            slmsg = f"Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n
         if LINK_LOGS:
             try:
                 upper = f"‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒\n"
@@ -318,9 +314,9 @@ class MirrorLeechListener:
             warnmsg = ''
         if BOT_PM and self.message.chat.type != 'private':
             if EMOJI_THEME is False:
-                pmwarn = f"<b>😉 I have sent files in PM.</b>\n"
+                pmwarn = f""
             else:
-                pmwarn = f"<b>I have sent files in PM.</b>\n"
+                pmwarn = f""
         elif self.message.chat.type == 'private':
             pmwarn = ''
         else:
@@ -336,9 +332,9 @@ class MirrorLeechListener:
             logwarn = ''
         if LEECH_LOG and self.message.chat.type != 'private':
             if EMOJI_THEME is False:
-                logleechwarn = f"<b>⚠️ I have sent files in Leech Log Channel. Join <a href=\"{LEECH_LOG_URL}\">Leech Log channel</a> </b>\n"
+                logleechwarn = f""
             else:
-                logleechwarn = f"<b>I have sent files in Leech Log Channel. Join <a href=\"{LEECH_LOG_URL}\">Leech Log channel</a> </b>\n"
+                logleechwarn = f""
         elif self.message.chat.type == 'private':
             logleechwarn = ''
         else:
@@ -434,15 +430,10 @@ class MirrorLeechListener:
                 else:
                     msg += f'\n<b>├ Corrupted Files: </b>{typ}'
             if EMOJI_THEME is False:
-                msg += f'\n<b>├⌛ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰👤 #Leech_by: </b>{self.tag}\n\n'
-            else: 
-                msg += f'\n<b>├ It Tooks:</b> {get_readable_time(time() - self.message.date.timestamp())}'
-                msg += f'\n<b>╰ #Leech_by: </b>{self.tag}\n\n'
+                
+        else:
 
-
-
-            if not files:
+           if not files:
                 if PICS:
                     uploadmsg = sendPhoto(msg, self.bot, self.message, choice(PICS), buttons.build_menu(2))
                 else:
