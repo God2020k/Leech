@@ -274,10 +274,14 @@ class MirrorLeechListener:
                             )
             file_ = _newExtFileName
 
-        if EMOJI_THEME is False:
+        if EMOJI_THEME is True:
             slmsg = f"🗂️ Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
+            slmsg += f"📐 Size: {size}\n"
+            slmsg += f"👥 Added by: {self.tag} | <code>{self.user_id}</code>\n\n"
         else:
             slmsg = f"Name: <{NAME_FONT}>{file_}</{NAME_FONT}>\n\n"
+            slmsg += f"Size: {size}\n"
+            slmsg += f"Added by: {self.tag} | <code>{self.user_id}</code>\n\n"
         if LINK_LOGS:
             try:
                 upper = f"‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒\n"
@@ -313,10 +317,10 @@ class MirrorLeechListener:
         else:
             warnmsg = ''
         if BOT_PM and self.message.chat.type != 'private':
-            if EMOJI_THEME is False:
-                pmwarn = f""
+            if EMOJI_THEME is True:
+                pmwarn = f"<b>😉 I have sent files in PM.</b>\n"
             else:
-                pmwarn = f""
+                pmwarn = f"<b>I have sent files in PM.</b>\n"
         elif self.message.chat.type == 'private':
             pmwarn = ''
         else:
@@ -331,10 +335,10 @@ class MirrorLeechListener:
         else:
             logwarn = ''
         if LEECH_LOG and self.message.chat.type != 'private':
-            if EMOJI_THEME is False:
-                logleechwarn = f""
+            if EMOJI_THEME is True:
+                logleechwarn = f"<b>⚠️ I have sent files in Leech Log Channel. Join <a href=\"{LEECH_LOG_URL}\">Leech Log channel</a> </b>\n"
             else:
-                logleechwarn = f""
+                logleechwarn = f"<b>I have sent files in Leech Log Channel. Join <a href=\"{LEECH_LOG_URL}\">Leech Log channel</a> </b>\n"
         elif self.message.chat.type == 'private':
             logleechwarn = ''
         else:
@@ -367,7 +371,7 @@ class MirrorLeechListener:
             if reply_to is not None and AUTO_DELETE_UPLOAD_MESSAGE_DURATION == -1:
                 reply_to.delete()
 
-        if EMOJI_THEME is False:
+        if EMOJI_THEME is True:
             msg = f"<b>╭🗂️ Name: </b><{NAME_FONT}>{file_}</{NAME_FONT}>\n<b>├📐 Size: </b>{size}"
         else:
             msg = f"<b>╭ Name: </b><{NAME_FONT}>{file_}</{NAME_FONT}>\n<b>├ Size: </b>{size}"
@@ -420,7 +424,7 @@ class MirrorLeechListener:
             else:
                 botstart = ''
 
-            if EMOJI_THEME is False:
+            if EMOJI_THEME is True:
                 msg += f'\n<b>├📚 Total Files: </b>{folders}'
             else:
                 msg += f'\n<b>├ Total Files: </b>{folders}'
@@ -437,8 +441,8 @@ class MirrorLeechListener:
                 msg += f'\n<b>╰ #Leech_by: </b>{self.tag}\n\n'
 
 
-      
-           if not files:
+
+            if not files:
                 if PICS:
                     uploadmsg = sendPhoto(msg, self.bot, self.message, choice(PICS), buttons.build_menu(2))
                 else:
